@@ -1,0 +1,10 @@
+<#include "incl/macros.html">
+<script>
+  const path = window.location.pathname;
+  const regex = /^\/(stdlib|library)\//;
+  if (path.test(regex)) {
+    window.location = path.replace(regex, "/doc/<#CURRENTVERSIONTAG>/stdlib/");
+  } else {
+    document.write("<h1>Not found</h1>");
+  }
+</script>
