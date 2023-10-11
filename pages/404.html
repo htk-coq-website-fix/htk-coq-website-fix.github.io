@@ -2,7 +2,7 @@
 <script>
   const path = window.location.pathname;
   const regex = /^\/(stdlib|library)\//;
-  if (path.test(regex)) {
+  if (regex.test(path)) {
     window.location = path.replace(regex, "/doc/<#CURRENTVERSIONTAG>/stdlib/");
   } else {
     document.write("<h1>Not found</h1>");
