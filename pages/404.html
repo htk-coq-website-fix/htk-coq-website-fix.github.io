@@ -2,11 +2,12 @@
 <script>
   const path = window.location.pathname;
   const stdlibRegex = /^\/(stdlib|library)\//;
-  const refmanRegex = /^\/refman\//;
+  const refmanRegex = /^\/distrib\/(.*)\/refman\//;
   if (stdlibRegex.test(path)) {
     window.location = path.replace(stdlibRegex, "/doc/<#CURRENTVERSIONTAG>/stdlib/");
   } else if (refmanRegex.test(path)) {
-    window.location = path.replace(refmanRegex, "/doc/<#CURRENTVERSIONTAG>/refman/");
+    const version = path.match(refmanRegex)[1];
+    window.location = path.replace(refmanRegex, "/doc/" + version + "/refman/");
   } else {
     document.write("<h1>Not found</h1>");
   }
